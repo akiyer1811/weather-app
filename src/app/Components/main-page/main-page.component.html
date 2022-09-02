@@ -1,0 +1,201 @@
+<body>
+    <div class="currentcard" >
+        <div class="card">
+        <div class="top-info"><div class="Info"><p style="font-size: 0.5rem; font-weight:bold;">CURRENT WEATHER</p>
+            <p style="font-size: 0.5rem; margin-top: -0.25rem;">{{ weatherData?.location?.localtime}}</p></div>
+           <div class="Info" style="margin-left: 5rem;"> <h1 style="font-size: 1.125rem;"><b>{{ weatherData?.location?.name }}</b></h1></div> <div class="Info">
+            <button id="button"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+            </svg></button>
+           </div></div>
+        <div class="middle-info"><div class="temp-and-info"> <img src="https://cdn3d.iconscout.com/3d/premium/thumb/sunny-day-3311771-2754905.png" width="182px" height="91px" style="z-index: 1;"> </div> <div class="temp-and-info" style="margin-left: -4rem;"> <h2 style="font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+           
+            /* identical to box height */
+            
+            letter-spacing: 0.04em;">{{ weatherData?.current?.temp_c} °C</h2><br><p class="other">Sunny</p></div>
+          <div class="temp-and-info"> <p >Precipitation: 0%</p><p class="other-data">Wind: 2 KMPH</p><p class="other-data">Humidity: 69%</p></div></div> 
+          <div class="bottom-info" style="margin-left: 1rem;"> <p style="font-size: 0.75rem;"> Night 28°C</p></div>
+        </div>
+    </div>
+    
+    
+    <div class="future-forecast">
+    
+        <div class="today" id="current-temp">
+    
+            <div class="others">
+                <div class="day" style="text-align: center;">Today</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            
+        </div>
+    
+        <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+                <div class="day">Tue</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Wed</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Thur</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Fri</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sat</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sun</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+    
+        </div>
+    </div>
+</body>
+
+
+
+<!-- <div class="search">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+    </form>
+  </div>
+  
+  <div class="container" *ngIf="weatherData">
+    <div class="upper-data">
+      <img src="../assets/summer.jpg" *ngIf="weatherData.current.temp_c > 15">
+      <img src="../assets/winter.jpg" *ngIf="weatherData.current.temp_c <= 15">
+  
+      <div class="weather-data">
+        <div class="location">{{ weatherData.location.name }}</div>
+        <div class="temperature">{{ weatherData.current.temp_c | number : '1.0-0'}} °C</div>
+      </div>
+    </div>
+  
+    <div class="lower-data">
+      <div class="more-info-label">
+        More Information
+      </div>
+      <div class="more-info-container">
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/feelslike.png" alt="feelslike">
+            <span>feelslike</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData.current.feelslike_c }}°C
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/uv.png" alt="uv">
+            <span>uv</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData.current.uv }} °C
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/humidity.png" alt="humidity">
+            <span>humidity</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData.current.humidity }}%
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/wind.png" alt="wind">
+            <span>wind</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData.current.wind_kph }} km/hr
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="weather-container" *ngIf="weatherData">
+    <div class="forecast-container">
+      <div class="day">{{ weatherData.forecast.forecastday[0] }}</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        {{ weatherData.forecast.forecastday[2].day.avgtemp_c }} °C
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Tuesday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Wednesday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Thursday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Friday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Saturday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+    <div class="forecast-container">
+      <div class="day">Sunday</div>
+      <img src="../assets/sun.png" alt="sun">
+      <div class="block-value">
+        11 km/hr
+      </div>
+    </div>
+  </div>
+   -->

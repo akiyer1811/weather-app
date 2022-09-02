@@ -1,0 +1,21 @@
+#watch{
+    text-align: right;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+} 
+
+.nav-item dropdown{
+    text-align: left;
+}
+
+#dropdown-menu{
+    text-align: left;
+}
+

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherData } from './weather.model';
-import { WeatherService } from './weather.service';
+import { WeatherData } from 'src/app/weather.model';
+import { WeatherService } from 'src/app/weather.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-main-page',
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.css']
 })
-export class AppComponent implements OnInit{
-  
-  constructor(private weatherService: WeatherService){
-      
-  }
+export class MainPageComponent implements OnInit {
+
+  constructor(private weatherService: WeatherService) { }
 
   cityName: string = 'Paris';
   weatherData?: WeatherData; 

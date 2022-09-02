@@ -1,0 +1,124 @@
+.Info
+{
+    margin-top: 0%;
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+    align-items: center;
+}
+#button{
+    border: 0;
+    background-color: white;
+}
+.temp-and-info
+{ align-items: center;
+    margin-top: 0%;
+    display: inline-block;
+    padding-left: 1rem;
+   margin-right: 2rem ;
+    vertical-align: middle; 
+}
+
+
+.bottom-info{
+    
+    margin-top: -1rem;
+}
+.other-data{
+    
+     margin-top: -1rem;
+}
+.other{
+    margin-top:-2rem ;
+}
+.middle-info{
+    padding: 1rem 1rem;
+    margin-top: -2rem;
+    margin-left: -4rem;
+}
+
+.currentcard {
+    align-items: center;
+    position: absolute;
+    margin-left: 1.75rem;
+    margin-top: 5rem;
+    display: flex;
+    background: rgba(241, 241, 241, 0.2);
+    backdrop-filter: blur(0.75rem);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 0.5rem; 
+    border: .125rem solid rgba(255, 255, 255, 0.2);        
+    border-left: .125rem solid rgba(255, 255, 255, 0.3); 
+    border-bottom: .125rem solid rgba(255, 255, 255, 0.05); 
+    border-right: .125rem solid rgba(255, 255, 255, 0.05); 
+}
+
+        
+
+p.bold{
+    font-size: 12;
+    font-weight: 900;
+}
+p.Regular{
+    font-size: 12;
+    font-weight:100;
+}
+
+.future-forecast{
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    color:black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    margin-left: -1.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.future-forecast .today{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    padding: .75rem;
+    background: rgba(241, 241, 241, 0.2);
+    backdrop-filter: blur(0.75rem);
+    border-radius: 0.5rem; 
+    border: .125rem solid rgba(255, 255, 255, 0.2);        
+    border-left: .125rem solid rgba(255, 255, 255, 0.3); 
+    border-bottom: .125rem solid rgba(255, 255, 255, 0.05); 
+    border-right: .125rem solid rgba(255, 255, 255, 0.05); 
+    
+
+}
+
+.future-forecast .weather-forecast{
+    display: flex;
+}
+
+.weather-forecast .weather-forecast-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding: .75rem;
+    
+    background: rgba(241, 241, 241, 0.2);
+    backdrop-filter: blur(0.75rem);
+    border-radius: 0.5rem; 
+    border: .125rem solid rgba(255, 255, 255, 0.2);        
+    border-left: .125rem solid rgba(255, 255, 255, 0.3); 
+    border-bottom: .125rem solid rgba(255, 255, 255, 0.05); 
+    border-right: .125rem solid rgba(255, 255, 255, 0.05); 
+}
+
+.day{
+    font-size: 12;
+    font-weight:700;
+}
