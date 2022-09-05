@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherData } from 'src/app/weather.model';
 import { WeatherService } from 'src/app/weather.service';
 import { WatchlistService } from '../watchlist/watchlist.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -11,10 +11,15 @@ import { WatchlistService } from '../watchlist/watchlist.service';
 export class MainPageComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private watchlistService: WatchlistService) { }
+  
+  // activatedRoute.params.subscribe((params)=>{
+  //   if(params['id'])
+  //   this.city = WeatherService.
+  // })
   city: WeatherData = {} as WeatherData;
   isInCart: boolean = false;
 
-  cityName: string = 'Paris';
+  cityName: string = 'Bengaluru';
   weatherData?: WeatherData; 
 
   ngOnInit(): void {

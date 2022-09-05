@@ -9,6 +9,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { WatchlistComponent } from './Components/watchlist/watchlist.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainPageComponent } from './Components/main-page/main-page.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { MainPageComponent } from './Components/main-page/main-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path:'', 

@@ -1,1 +1,65 @@
-<p>login works!</p>
+
+<h2 class="text-center text-xl">Login</h2>
+<div class="container mt-5 col-md-5 justify-content-center card px-5 py-5 pb-5 pt-5">
+    <form (ngSubmit)="submit()" #myForm="ngForm">
+        
+        <div class="form-group forms-inputs mb-4">
+            <span>E-Mail</span>
+            <input type="email" id="email"
+                class="m-3 rounded w-full border text-sm"
+                placeholder="Email Address" [(ngModel)]="form.email"
+                name="email" #email="ngModel" required id="login-form">
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="p-2 bg-red-300 text-red-800 rounded">
+            Email field must be valid
+        </div>
+
+        <div class="form-group forms-inputs mb-4">
+            
+            <span>Password</span>
+            <input type="password" id="password"
+                class="m-3 rounded w-full border text-sm" placeholder="Password"
+                [(ngModel)]="form.password" name="password" #password="ngModel"
+                required id="login-form">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="p-2 bg-red-300 text-red-800 rounded">
+            Password field must be valid
+        </div>
+
+        <div class="form-group">
+            <button type="submit"
+                class="btn btn-dark w-100 mb-5">Submit
+            </button>
+
+        </div>
+    </form>
+</div>
+
+<!-- <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5" id="form1">
+                <div class="form-data" v-if="!submitted">
+                    <div class="forms-inputs mb-4"> 
+                        <span>Email</span> 
+                        <input autocomplete="off" type="text" v-model="email" v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}" v-on:blur="emailBlured = true"
+                        [(ngModel)]="form.email"
+                        name="email" #email="ngModel" required id="login-form">
+                        <div class="invalid-feedback">A valid email is required!</div>
+                    </div>
+                    <div class="forms-inputs mb-4"> 
+                        <span>Password</span> 
+                        <input autocomplete="off" type="password" v-model="password" v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}" v-on:blur="passwordBlured = true"
+                        [(ngModel)]="form.password" name="password" #password="ngModel"
+                        id="login-form" required >
+                        <div class="invalid-feedback">Password must be 8 character!</div>
+                    </div>
+                    <div class="mb-3"> <button type="submit" class="btn btn-dark w-100">Login</button> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->

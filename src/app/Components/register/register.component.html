@@ -1,1 +1,75 @@
-<p>register works!</p>
+
+<!-- <ul>
+    <li>{{name}}</li>
+</ul>
+
+<input type="text" (input)="handleInput($event)">
+
+<p>{{ myName }}</p> -->
+<div class="container">
+    <form (ngSubmit)="submit()" #myForm="ngForm" >
+        <h2 class="text-center text-xl">Register</h2>
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input type="text" id="FirstName"
+                class="m-3 rounded w-full border text-sm"
+                [(ngModel)]="form.FirstName"
+                name="FirstName" #FirstName="ngModel"
+                placeholder="First Name" required id="register-form">
+
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input type="text" id="LastName"
+                class="m-3 rounded w-full border text-sm"
+                placeholder="Last Name"
+                [(ngModel)]="form.LastName"
+                name="LastName" #LastName="ngModel"
+                placeholder="Last Name" required id="register-form">
+
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email"
+                class="m-3 rounded w-full border text-sm"
+                placeholder="Email Address" [(ngModel)]="form.email"
+                name="email" #email="ngModel" required id="register-form">
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="m-3 bg-red-300 text-red-800 rounded">
+            Email field must be valid
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password"
+                class="m-3 rounded w-full border text-sm" placeholder="Password"
+                [(ngModel)]="form.password" name="password" #password="ngModel"
+                required id="register-form">
+        </div>
+
+        <div class="form-group">
+            <label for="confirmpassword">Confirm Password</label>
+            <input type="password" id="confirmpassword"
+                class="m-3 rounded w-full border text-sm" placeholder="Confirm Password"
+                [(ngModel)]="form.confirmpassword" name="confirmpassword" #confirmpassword="ngModel"
+                required id="register-form">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="m-3 bg-red-300 text-red-800 rounded">
+            Password field must be valid
+        </div>
+
+        <div *ngIf="form.password != form.confirmpassword"
+            class="m-3 bg-red-300 text-red-800 rounded">
+            Passwords don't match
+        </div>
+
+        <div class="form-group">
+            <button type="submit"
+                class="btn btn-primary">Register
+            </button>
+
+        </div>
+    </form>
+</div>
