@@ -1,12 +1,29 @@
 <body>
-    <div class="currentcard" >
+  <div  id="search">
+    <div class="col-md-4">
+      <form class="d-flex" role="search" (submit)="onSubmit()">
+        <input class="form-control me-2" type="search" placeholder="Search City" aria-label="Search">
+        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+        <button class="btn" type="submit"  (click) = "onSubmit()"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+
+          viewBox="0 0 1024 1024" height="1em" width="1em"
+
+          xmlns="http://www.w3.org/2000/svg">
+
+          <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg></button>
+      </form>
+    </div> 
+  </div>
+    <div class="currentcard">
         <div class="card">
         <div class="top-info"><div class="Info"><p style="font-size: 0.5rem; font-weight:bold;">CURRENT WEATHER</p>
-            <p style="font-size: 0.5rem; margin-top: -0.25rem;">{{ weatherData?.location?.localtime}}</p></div>
-           <div class="Info" style="margin-left: 5rem;"> <h1 style="font-size: 1.125rem;"><b>{{ weatherData?.location?.name }}</b></h1></div> <div class="Info">
-            <button id="button"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-            </svg></button>
+             <p style="font-size: 0.5rem; margin-top: -0.25rem;">{{ weatherData?.location?.localtime}}</p></div>
+           <div class="Info" style="margin-left: 5rem;"> <h1 style="font-size: 1.125rem;"><b>{{ weatherData?.location?.name}}</b></h1></div> <div class="Info">
+            <button id="button" (click)="addToCart()">
+            ADD
+            </button>
+            
+            <button id="button" (click)="removeFromCart()"></button>
            </div></div>
         <div class="middle-info"><div class="temp-and-info"> <img src="https://cdn3d.iconscout.com/3d/premium/thumb/sunny-day-3311771-2754905.png" width="182px" height="91px" style="z-index: 1;"> </div> <div class="temp-and-info" style="margin-left: -4rem;"> <h2 style="font-family: 'Inter';
             font-style: normal;
@@ -15,22 +32,22 @@
            
             /* identical to box height */
             
-            letter-spacing: 0.04em;">{{ weatherData?.current?.temp_c} °C</h2><br><p class="other">Sunny</p></div>
-          <div class="temp-and-info"> <p >Precipitation: 0%</p><p class="other-data">Wind: 2 KMPH</p><p class="other-data">Humidity: 69%</p></div></div> 
-          <div class="bottom-info" style="margin-left: 1rem;"> <p style="font-size: 0.75rem;"> Night 28°C</p></div>
+            letter-spacing: 0.04em;">{{ weatherData?.current?.temp_c}} °C</h2><br><p class="other">{{ weatherData?.current?.condition?.text}}</p></div>
+          <div class="temp-and-info"> <p >Precipitation: {{ weatherData?.current?.precip_mm}} mm</p><p class="other-data">Wind: {{ weatherData?.current?.wind_kph}} KMPH</p><p class="other-data">Humidity: {{ weatherData?.current?.humidity}}%</p><p class="other-data"> Feels Like: {{ weatherData?.current?.feelslike_c}}°C </p></div></div> 
+          <!-- <div class="bottom-info" style="margin-left: 1rem;"> <p style="font-size: 0.75rem;"> Night {{ weatherData?.forecast?.forecastday?.day?.mintemp_c}}°C</p></div> -->
         </div>
     </div>
     
     
     <div class="future-forecast">
     
-        <div class="today" id="current-temp">
+        <div class="today" id="current-temp" *ngIf="weatherData">
     
             <div class="others">
                 <div class="day" style="text-align: center;">Today</div>
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
+                <div class="temp">Day - 27&#176; C</div>
             </div>
             
         </div>
@@ -47,32 +64,7 @@
                 <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 <div class="temp">Night - 25.6&#176; C</div>
                 <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Thur</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Fri</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Sat</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Sun</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-    
+            </div>    
         </div>
     </div>
 </body>

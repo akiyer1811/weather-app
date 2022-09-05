@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherData } from 'src/app/weather.model';
 import { WeatherService } from 'src/app/weather.service';
+import { WatchlistService } from '../watchlist/watchlist.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +10,9 @@ import { WeatherService } from 'src/app/weather.service';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService, private watchlistService: WatchlistService) { }
+  city: WeatherData = {} as WeatherData;
+  isInCart: boolean = false;
 
   cityName: string = 'Paris';
   weatherData?: WeatherData; 
@@ -20,10 +23,13 @@ export class MainPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("onSubmit reached")
     this.getWeatherDataForecast(this.cityName);
     this.cityName = '';
   }
   private getWeatherDataForecast(cityName: string) {
+    console.log("getweather reached")
+
     this.weatherService.getWeatherDataForecast(cityName)
     .subscribe({
       next: (response) => {
@@ -33,4 +39,17 @@ export class MainPageComponent implements OnInit {
     });
   }
 
+
+  addToCart() {
+    console.log("Component -> addToCart");
+       
+    this.watchlistService.add(this.city);
+    this.isInCart = true;
+  }
+
+  removeFromCart() {
+    this.isInCart = false;
+    this.watchlistService.remove(this.city);
+
+}
 }

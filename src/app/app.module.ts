@@ -15,7 +15,8 @@ import { MainPageComponent } from './Components/main-page/main-page.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
